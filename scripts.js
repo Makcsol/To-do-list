@@ -44,15 +44,11 @@ list.addEventListener("click",function(event){
     if(event.target.tagName == "SPAN"){
         clickedTask.classList.add("text-decoration-line-through" ,"text-muted");
         const taskIndex = clickedTask.dataset.index;
-        taskList[taskIndex].status = "done";
+        taskList[taskIndex].status = "done"; 
         taskList[taskIndex].endDate = new Date().toLocaleString();
         
     } else{
         console.log("You not pick any task")
     }
-
-        
-
+     
 })
-
-
