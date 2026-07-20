@@ -1,8 +1,8 @@
 const button = document.getElementById("pushButton");
 const text = document.getElementById("inputText");
 const list = document.getElementById("listUl");
-
-
+const toast = document.getElementById("toast-bootstrap");
+const classToast = new bootstrap.Toast(toast);
 
 const taskList=[];
 button.addEventListener("click",function(){
@@ -32,6 +32,8 @@ list.appendChild(newLi);
 text.value = "";
 
 
+
+
 newButton.addEventListener("click",function(){
     newLi.remove();
 })
@@ -46,9 +48,10 @@ list.addEventListener("click",function(event){
         const taskIndex = clickedTask.dataset.index;
         taskList[taskIndex].status = "done"; 
         taskList[taskIndex].endDate = new Date().toLocaleString();
-        
+    
+    } else if(event.target.tagName !="SPAN" && event.target.tagName!="BUTTON"){
+        classToast.show()
     } else{
-        console.log("You not pick any task")
     }
      
 })
